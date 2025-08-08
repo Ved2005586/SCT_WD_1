@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TechInfo E-Learning</title>
+  <style>
+    /* Reset & Base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      background: #0f172a;
+      color: #f1f5f9;
+      line-height: 1.6;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: transparent;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      z-index: 1000;
+      transition: background 0.3s, box-shadow 0.3s;
+    }
+    nav.scrolled {
+      background: rgba(15,23,42,0.95);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+      backdrop-filter: blur(8px);
+    }
+    nav .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #38bdf8;
+      letter-spacing: 1px;
+    }
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #f1f5f9;
+      font-weight: 500;
+      position: relative;
+      padding: 5px 0;
+      transition: 0.3s;
+    }
+    nav ul li a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 0%;
+      height: 2px;
+      background: #38bdf8;
+      transition: 0.3s;
+    }
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+    nav ul li a:hover {
+      color: #38bdf8;
+    }
+
+    /* Header */
+    header {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px;
+      background: linear-gradient(135deg, #1e3a8a, #0f172a);
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(56,189,248,0.1), transparent);
+      top: -150px;
+      left: -150px;
+      border-radius: 50%;
+      z-index: 0;
+    }
+    header h1 {
+      font-size: 3.2rem;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
+    }
+    header p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Sections */
+    section {
+      padding: 80px 40px;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: 0.8s ease;
+    }
+    section.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    section h2 {
+      font-size: 2.4rem;
+      margin-bottom: 40px;
+      text-align: center;
+      background: linear-gradient(90deg, #38bdf8, #60a5fa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Cards */
+    .card {
+      background: #1e293b;
+      padding: 30px;
+      border-radius: 12px;
+      margin-bottom: 30px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.6);
+    }
+    .card h3 {
+      color: #38bdf8;
+      margin-bottom: 15px;
+    }
+
+    /* Footer */
+    footer {
+      background: #1e293b;
+      text-align: center;
+      padding: 30px;
+      font-size: 0.9rem;
+      color: #cbd5e1;
+    }
+
+    /* Responsive */
+    @media(max-width: 768px) {
+      nav ul {
+        display: none;
+      }
+      nav .logo {
+        font-size: 1.5rem;
+      }
+      header h1 {
+        font-size: 2.2rem;
+      }
+      header p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="navbar">
+    <div class="logo">TechInfo</div>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#courses">Courses</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header id="home">
+    <div>
+      <h1>Unlock Your Potential</h1>
+      <p>Empower your learning journey with our engaging e-learning platform. Learn. Grow. Succeed.</p>
+    </div>
+  </header>
+
+  <section id="courses">
+    <h2>Our Courses</h2>
+    <div class="card">
+      <h3>Full Stack Web Development</h3>
+      <p>Master HTML, CSS, JavaScript, and modern frameworks to build real-world applications.</p>
+    </div>
+    <div class="card">
+      <h3>Data Science & Analytics</h3>
+      <p>Analyze data and uncover insights using Python, R, and industry-standard tools.</p>
+    </div>
+    <div class="card">
+      <h3>Digital Marketing</h3>
+      <p>Learn SEO, social media strategy, and content marketing to grow any brand online.</p>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>About Us</h2>
+    <div class="card">
+      <p>TechInfo is a team of passionate educators and developers committed to democratizing quality education. Our courses are designed to empower learners at all levels to excel in the digital era.</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="card">
+      <p>Email: contact@skillcraft.com</p>
+      <p>Phone: +91-9999999999</p>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 TechInfo. All rights reserved.
+  </footer>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+      document.querySelectorAll('section').forEach(sec => {
+        const rect = sec.getBoundingClientRect();
+        if(rect.top < window.innerHeight - 100) {
+          sec.classList.add('show');
+        }
+      });
+    });
+    window.dispatchEvent(new Event('scroll')); // Show sections on load if visible
+  </script>
+
+</body>
+</html>
